@@ -1,3 +1,4 @@
+/* ——— ROOT THEME ——— */
 :root {
   --bg: #050711;
   --bg-elevated: #101321;
@@ -27,7 +28,7 @@ body {
   flex-direction: column;
 }
 
-/* HEADER */
+/* ——— HEADER ——— */
 
 .app-header {
   height: 56px;
@@ -43,12 +44,12 @@ body {
 .logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .logo-mark {
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border-radius: 999px;
   background: radial-gradient(circle at 30% 30%, #7f5dff, #4f8cff);
   display: flex;
@@ -57,11 +58,23 @@ body {
   font-size: 14px;
 }
 
+.logo-text-group {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
 .logo-text {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  font-size: 13px;
+  font-size: 14px;
+}
+
+.logo-subtext {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 2px;
 }
 
 .header-right .badge {
@@ -72,7 +85,7 @@ body {
   color: var(--muted);
 }
 
-/* LAYOUT */
+/* ——— LAYOUT ——— */
 
 .app-main {
   flex: 1;
@@ -96,7 +109,7 @@ body {
   overflow: hidden;
 }
 
-/* SIDEBAR */
+/* ——— SIDEBAR ——— */
 
 .sidebar-section {
   margin-bottom: 16px;
@@ -150,76 +163,12 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.02);
 }
 
-.playlist-item:last-child {
-  border-bottom: none;
-}
-
-.playlist-item span.name {
-  max-width: 150px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.playlist-item span.meta {
-  color: var(--muted);
-  font-size: 11px;
-}
-
 .playlist-item.active {
   background: linear-gradient(90deg, rgba(79, 140, 255, 0.18), transparent);
   border-left: 2px solid var(--accent);
 }
 
-.field {
-  margin-bottom: 8px;
-  font-size: 12px;
-}
-
-.field label {
-  display: block;
-  margin-bottom: 4px;
-  color: var(--muted);
-}
-
-.field-row {
-  display: flex;
-  gap: 8px;
-}
-
-.field-row .field {
-  flex: 1;
-}
-
-input[type="number"],
-select,
-input[type="text"] {
-  width: 100%;
-  padding: 6px 8px;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  background: rgba(5, 7, 17, 0.9);
-  color: var(--text);
-  font-size: 12px;
-}
-
-input[type="range"] {
-  width: 100%;
-}
-
-.shortcuts ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 11px;
-  color: var(--muted);
-}
-
-.shortcuts li {
-  margin-bottom: 4px;
-}
-
-/* PLAYER */
+/* ——— PLAYER ——— */
 
 .player-wrapper {
   position: relative;
@@ -227,14 +176,12 @@ input[type="range"] {
   border-radius: 12px;
   overflow: hidden;
   background: #000;
-  border: 1px solid #000;
 }
 
 .video {
   width: 100%;
   height: 100%;
   display: block;
-  background: #000;
 }
 
 .overlay-preview {
@@ -273,10 +220,6 @@ input[type="range"] {
   gap: 6px;
 }
 
-#seek-bar {
-  flex: 1;
-}
-
 .actions-row {
   display: flex;
   align-items: center;
@@ -284,7 +227,7 @@ input[type="range"] {
   margin-top: 10px;
 }
 
-/* BUTTONS */
+/* ——— BUTTONS ——— */
 
 .btn {
   border: none;
@@ -319,16 +262,7 @@ input[type="range"] {
   border-radius: 999px;
 }
 
-.btn:hover {
-  transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.btn.primary:hover {
-  background: #6b9dff;
-}
-
-/* EDITOR PANEL */
+/* ——— EDITOR PANEL ——— */
 
 .editor-section {
   margin-bottom: 16px;
@@ -342,67 +276,11 @@ input[type="range"] {
   color: var(--muted);
 }
 
-.editor-section small {
-  font-size: 11px;
-  color: var(--muted);
-}
-
 .info-panel {
   font-size: 12px;
   color: var(--muted);
 }
 
-.info-panel p {
-  margin: 4px 0;
-}
-
-.status {
-  font-size: 11px;
-  color: var(--muted);
-}
-
-/* HIDDEN CANVAS */
-
 .hidden-canvas {
   display: none;
-}
-
-/* SCROLLBARS */
-
-.playlist::-webkit-scrollbar {
-  width: 6px;
-}
-
-.playlist::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 1100px) {
-  .app-main {
-    grid-template-columns: 240px minmax(0, 1.4fr);
-    grid-template-rows: minmax(0, 1fr) auto;
-    grid-template-areas:
-      "sidebar player"
-      "sidebar editor";
-  }
-
-  .editor-panel {
-    margin-top: 8px;
-  }
-}
-
-@media (max-width: 900px) {
-  .app-main {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-  }
-
-  .sidebar,
-  .player-panel,
-  .editor-panel {
-    max-height: none;
-  }
 }
